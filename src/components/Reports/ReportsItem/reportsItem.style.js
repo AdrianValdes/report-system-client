@@ -7,7 +7,7 @@ export const ReportCard = styled.div`
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 5px 10px 0px;
   width: 680px;
-  padding: 28px;
+  padding: 40px 28px;
   background-color: #f9f5f1;
 `;
 
