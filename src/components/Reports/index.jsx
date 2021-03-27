@@ -1,6 +1,6 @@
 import React from 'react';
 import { useReports } from '../../context/reportsContext';
-import { ReportListStyles, ReportStyles } from './reports.stlye';
+import { ReportListStyles, ReportStyles } from './reports.style';
 import { ReportsItem } from './ReportsItem';
 
 export const Reports = () => {
