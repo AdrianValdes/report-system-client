@@ -6,10 +6,9 @@ export const resolveTicket = async (id) => {
       ticketState: 'CLOSED',
     });
     return data;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    return error;
   }
-  return undefined;
 };
 
 export const fetchAllReports = async () => {

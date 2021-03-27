@@ -5,6 +5,7 @@ import {
   FETCH_REPORTS,
   FETCH_REPORTS_ERROR,
   RESOLVE_TICKET,
+  RESOLVE_TICKET_ERROR,
 } from './constants';
 
 const initialReports = { error: null, reports: [] };
@@ -19,6 +20,8 @@ const reportsReducer = (state, { type, payload: { reports, error, id } }) => {
       const reportsNew = state.reports.filter((report) => report.id !== id);
       return { ...state, reports: reportsNew };
     }
+    case RESOLVE_TICKET_ERROR:
+      return { ...state, error };
     default:
       return state;
   }
@@ -37,9 +40,16 @@ export const ReportsProvider = ({ children }) => {
     const getReports = async () => {
       try {
         const reports = await fetchAllReports();
+
+        if (reports instanceof Error) {
+          dispatchReports({
+            type: FETCH_REPORTS_ERROR,
+            payload: { error: reports.message },
+          });
+        }
         dispatchReports({ type: FETCH_REPORTS, payload: { reports } });
       } catch (error) {
-        dispatchReports({ type: FETCH_REPORTS, payload: { error } });
+        dispatchReports({ type: FETCH_REPORTS_ERROR, payload: { error } });
       }
     };
     getReports();

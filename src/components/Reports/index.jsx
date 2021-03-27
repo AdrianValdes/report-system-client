@@ -5,8 +5,10 @@ import { ReportsItem } from './ReportsItem';
 
 export const Reports = () => {
   const {
-    reportsState: { reports },
+    reportsState: { reports, error },
   } = useReports();
+
+  if (error) return <div>{error}</div>;
 
   return (
     <ReportStyles>

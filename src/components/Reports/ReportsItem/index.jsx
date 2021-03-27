@@ -10,7 +10,10 @@ import {
 
 import { resolveTicket } from '../../../helpers/apiCalls';
 import { useReports } from '../../../context/reportsContext';
-import { RESOLVE_TICKET } from '../../../context/constants';
+import {
+  RESOLVE_TICKET,
+  RESOLVE_TICKET_ERROR,
+} from '../../../context/constants';
 
 export const ReportsItem = ({ report: { id, payload, state } }) => {
   const { dispatchReports } = useReports();
@@ -19,8 +22,8 @@ export const ReportsItem = ({ report: { id, payload, state } }) => {
     try {
       await resolveTicket(id);
       dispatchReports({ type: RESOLVE_TICKET, payload: { id } });
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      dispatchReports({ type: RESOLVE_TICKET_ERROR, payload: { error } });
     }
   };
 
