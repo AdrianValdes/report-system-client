@@ -17,7 +17,9 @@ const reportsReducer = (state, { type, payload: { reports, error, id } }) => {
     case FETCH_REPORTS_ERROR:
       return { ...state, error };
     case RESOLVE_TICKET: {
-      const reportsNew = state.reports.filter((report) => report.id !== id);
+      const reportsNew = state.reports.filter(
+        ({ payload: { reportId } }) => reportId !== id
+      );
       return { ...state, reports: reportsNew };
     }
     case RESOLVE_TICKET_ERROR:
