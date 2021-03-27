@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
-import { axiosInstance as axios } from '../helpers';
+import { fetchAllReports } from '../helpers/apiCalls';
 import {
   FETCH_REPORTS,
   FETCH_REPORTS_ERROR,
@@ -34,15 +34,15 @@ export const ReportsProvider = ({ children }) => {
   );
 
   useEffect(() => {
-    const getAllReports = async () => {
+    const getReports = async () => {
       try {
-        const { data } = await axios.get('/reports');
-        dispatchReports({ type: FETCH_REPORTS, payload: { reports: data } });
+        const reports = await fetchAllReports();
+        dispatchReports({ type: FETCH_REPORTS, payload: { reports } });
       } catch (error) {
         dispatchReports({ type: FETCH_REPORTS, payload: { error } });
       }
     };
-    getAllReports();
+    getReports();
   }, []);
 
   return (

@@ -11,3 +11,12 @@ export const resolveTicket = async (id) => {
   }
   return undefined;
 };
+
+export const fetchAllReports = async () => {
+  try {
+    const { data } = await axios.get('/reports');
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
