@@ -19,3 +19,14 @@ export const fetchAllReports = async () => {
     return error;
   }
 };
+
+export const blockContent = async (id) => {
+  try {
+    const { data } = await axios.put(`/blacklist/${id}`, {
+      action: 'block',
+    });
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
