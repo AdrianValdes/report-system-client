@@ -25,6 +25,7 @@ export const blockContent = async (id) => {
     const { data } = await axios.put(`/blacklist/${id}`, {
       action: 'block',
     });
+    console.log('success');
     return data;
   } catch (error) {
     return error;
