@@ -44,5 +44,5 @@ export const ReportsProvider = ({ children }) => {
 };
 
 ReportsProvider.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
