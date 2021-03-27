@@ -6,6 +6,7 @@ export const ReportStyles = styled.div`
   justify-content: center;
   align-content: center;
   gap: 40px;
+  padding: 40px 20px;
 `;
 
 export const ReportListStyles = styled.div`
