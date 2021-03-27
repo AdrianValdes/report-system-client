@@ -1,5 +1,6 @@
 import React from 'react';
 import { useReports } from '../../context/reportsContext';
+import { ReportListStyles, ReportStyles } from './reports.stlye';
 import { ReportsItem } from './ReportsItem';
 
 export const Reports = () => {
@@ -8,10 +9,13 @@ export const Reports = () => {
   } = useReports();
 
   return (
-    <>
-      {reports.map((report) => (
-        <ReportsItem key={report.id} report={report} />
-      ))}
-    </>
+    <ReportStyles>
+      <ReportListStyles>
+        <h1>Reports</h1>
+        {reports.map((report) => (
+          <ReportsItem key={report.id} report={report} />
+        ))}
+      </ReportListStyles>
+    </ReportStyles>
   );
 };
