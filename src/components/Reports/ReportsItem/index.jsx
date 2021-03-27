@@ -1,9 +1,9 @@
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
   ButtonBlock,
   ButtonCardStyles,
+  ButtonResolve,
   ReportCard,
   ReportInfo,
 } from './reportsItem.style';
@@ -37,9 +37,9 @@ export const ReportsItem = ({ report: { id, payload, state } }) => {
       </ReportInfo>
       <ButtonCardStyles>
         <ButtonBlock type='button'>Block</ButtonBlock>
-        <button type='button' onClick={handleResolve}>
+        <ButtonResolve type='button' onClick={handleResolve}>
           Resolve
-        </button>
+        </ButtonResolve>
       </ButtonCardStyles>
     </ReportCard>
   );
