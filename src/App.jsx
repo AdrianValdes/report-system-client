@@ -1,9 +1,13 @@
 import React from 'react';
+import { Reports } from './components/Reports';
 import { GlobalStyle } from './components/GlobalStyle';
+import { ReportsProvider } from './context/reportsContext';
 
 export const App = () => (
   <>
-    <GlobalStyle />
-    <h1>Hello There</h1>
+    <ReportsProvider>
+      <GlobalStyle />
+      <Reports />
+    </ReportsProvider>
   </>
 );
